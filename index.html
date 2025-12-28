@@ -271,6 +271,7 @@
                     <li><a href="#advanced">6. Advanced Features</a></li>
                     <li><a href="#api">7. REST API</a></li>
                     <li><a href="#troubleshooting">8. Troubleshooting</a></li>
+                    <li><a href="#project-images">9. Project Showcase Images</a></li>
                 </ul>
             </div>
 
@@ -797,6 +798,135 @@ curl -X POST http://localhost:5000/api/recognize \<br>
                 <span class="badge">Flask</span>
                 <span class="badge">Matplotlib</span>
                 <span class="badge">Pillow</span>
+            </div>
+
+            <h2 id="project-images">9. Project Showcase Images</h2>
+            <p>Below are the visual representations of the face recognition system features and capabilities:</p>
+
+            <h3>Image 1: Main Dashboard - System Overview</h3>
+            <div class="step">
+                <strong><i class="fas fa-desktop"></i> Dashboard Interface</strong>
+                <div style="margin-top: 15px; text-align: center; padding: 20px; background: #f8f9fa; border-radius: 5px;">
+                    <img src="images/face-recognition-dashboard-overview.png" 
+                         alt="Face Recognition Dashboard - Main Interface" 
+                         style="max-width: 100%; height: auto; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 5px;">
+                        <i class="fas fa-image" style="font-size: 3em; margin-bottom: 15px;"></i>
+                        <p><strong>Face Recognition Dashboard</strong></p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">Main system interface showing person thumbnails, live face detection, and statistics panel</p>
+                        <p style="font-size: 0.8em; margin-top: 15px; opacity: 0.8;">Image: face-recognition-dashboard-overview.png</p>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;"><strong>Features Shown:</strong></p>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Person thumbnails grid (person_001 to person_005)</li>
+                    <li>Live face detection with green bounding box</li>
+                    <li>Recognition results: "person_001 - 95.2% confidence"</li>
+                    <li>Statistics panel: "5 identities, 25 images, 98.5% accuracy"</li>
+                    <li>Navigation icons for all features</li>
+                    <li>Modern purple-blue gradient theme</li>
+                </ul>
+            </div>
+
+            <h3>Image 2: Processing Pipeline - Face Recognition Flow</h3>
+            <div class="step">
+                <strong><i class="fas fa-cogs"></i> Processing Visualization</strong>
+                <div style="margin-top: 15px; text-align: center; padding: 20px; background: #f8f9fa; border-radius: 5px;">
+                    <img src="images/face-recognition-processing-pipeline.png" 
+                         alt="Face Recognition Processing Pipeline" 
+                         style="max-width: 100%; height: auto; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 5px;">
+                        <i class="fas fa-project-diagram" style="font-size: 3em; margin-bottom: 15px;"></i>
+                        <p><strong>Processing Pipeline</strong></p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">4-step face recognition process: Detection → Encoding → Matching → Result</p>
+                        <p style="font-size: 0.8em; margin-top: 15px; opacity: 0.8;">Image: face-recognition-processing-pipeline.png</p>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;"><strong>Features Shown:</strong></p>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Input image with face detection boxes</li>
+                    <li>Step 1: Face Detection (HOG/CNN)</li>
+                    <li>Step 2: Face Encoding (128D vector visualization)</li>
+                    <li>Step 3: Face Matching (similarity scores: 0.95, 0.12, 0.08)</li>
+                    <li>Step 4: Result display ("Match Found: person_001 - 95%")</li>
+                    <li>Technical details: Distance, Tolerance, Encoding dimensions</li>
+                </ul>
+            </div>
+
+            <h3>Image 3: Advanced Features Dashboard</h3>
+            <div class="step">
+                <strong><i class="fas fa-star"></i> Advanced Capabilities</strong>
+                <div style="margin-top: 15px; text-align: center; padding: 20px; background: #f8f9fa; border-radius: 5px;">
+                    <img src="images/face-recognition-advanced-features.png" 
+                         alt="Advanced Face Recognition Features" 
+                         style="max-width: 100%; height: auto; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 5px;">
+                        <i class="fas fa-magic" style="font-size: 3em; margin-bottom: 15px;"></i>
+                        <p><strong>Advanced Features</strong></p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">4-panel dashboard showcasing verification, clustering, quality assessment, and data augmentation</p>
+                        <p style="font-size: 0.8em; margin-top: 15px; opacity: 0.8;">Image: face-recognition-advanced-features.png</p>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;"><strong>Features Shown:</strong></p>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li><strong>Panel 1:</strong> Face Verification - 2 images, "Match: True, 92.3% confidence"</li>
+                    <li><strong>Panel 2:</strong> Face Clustering - Network diagram, "3 clusters, Silhouette: 0.85"</li>
+                    <li><strong>Panel 3:</strong> Quality Assessment - Scores overlay "Blur: 0.92, Brightness: 0.88, Overall: 0.92"</li>
+                    <li><strong>Panel 4:</strong> Data Augmentation - Grid of original + 4 augmented images</li>
+                    <li><strong>Center:</strong> Real-time webcam feed with face recognition</li>
+                    <li>Background: Python code snippets</li>
+                </ul>
+            </div>
+
+            <h3>Image 4: REST API Interface</h3>
+            <div class="step">
+                <strong><i class="fas fa-globe"></i> Web API Interface</strong>
+                <div style="margin-top: 15px; text-align: center; padding: 20px; background: #f8f9fa; border-radius: 5px;">
+                    <img src="images/face-recognition-rest-api-interface.png" 
+                         alt="REST API Interface for Face Recognition" 
+                         style="max-width: 100%; height: auto; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 5px;">
+                        <i class="fas fa-server" style="font-size: 3em; margin-bottom: 15px;"></i>
+                        <p><strong>REST API Interface</strong></p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">Web browser showing API endpoints, JSON requests/responses, and live image processing</p>
+                        <p style="font-size: 0.8em; margin-top: 15px; opacity: 0.8;">Image: face-recognition-rest-api-interface.png</p>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;"><strong>Features Shown:</strong></p>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Browser address bar: "http://localhost:5000/api/recognize"</li>
+                    <li>JSON request panel with base64 image data</li>
+                    <li>JSON response: {"success": true, "faces_detected": 2, "results": [...]}</li>
+                    <li>Live image preview with face detection boxes</li>
+                    <li>API endpoints sidebar: /api/health, /api/recognize, /api/verify, /api/quality, /api/cluster</li>
+                    <li>Status indicators: "API Online, Requests: 1,247, Response: 45ms"</li>
+                    <li>Code examples: Python requests, cURL commands</li>
+                    <li>Network flow diagram: Client → Flask Server → Face Recognition → Database</li>
+                </ul>
+            </div>
+
+            <div class="info" style="margin-top: 30px;">
+                <strong><i class="fas fa-info-circle"></i> Image Information:</strong><br>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>All images should be placed in the <code>images/</code> directory</li>
+                    <li>Image format: PNG (high quality, 1920x1080 resolution)</li>
+                    <li>Watermark: "rskworld.in" in bottom right corner of each image</li>
+                    <li>Color theme: Purple-blue gradient (#667eea to #764ba2)</li>
+                    <li>If images are not available, placeholder boxes with descriptions will be shown</li>
+                </ul>
+            </div>
+
+            <h3>Image File Names</h3>
+            <div class="code-block">
+                <code>images/<br>
+├── face-recognition-dashboard-overview.png<br>
+├── face-recognition-processing-pipeline.png<br>
+├── face-recognition-advanced-features.png<br>
+└── face-recognition-rest-api-interface.png</code>
             </div>
         </div>
         
