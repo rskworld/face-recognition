@@ -1,0 +1,102 @@
+================================================================================
+FACE RECOGNITION DATASET PROJECT
+================================================================================
+
+Project ID: 22
+Title: Face Recognition Dataset
+Category: Image Data
+Difficulty: Intermediate
+
+Description:
+Facial recognition dataset with labeled face images across multiple identities 
+for face recognition and verification systems.
+
+Full Description:
+This dataset contains labeled face images with multiple images per identity, 
+various poses, lighting conditions, and expressions. Perfect for face recognition, 
+face verification, and biometric authentication systems.
+
+Technologies:
+- PNG, JPG (Image formats)
+- NumPy (Numerical computing)
+- OpenCV (Computer vision)
+- Face Recognition (Face recognition library)
+
+Features:
+- Multiple identities
+- Various poses
+- Different lighting conditions
+- Facial landmarks
+- Ready for face recognition models
+
+Source Link: ./face-recognition/face-recognition.zip
+Demo Link: ./face-recognition/
+Project Image: ./face-recognition/face-recognition.png
+
+================================================================================
+CONTACT INFORMATION
+================================================================================
+
+RSK World
+Founder: Molla Samser
+Designer & Tester: Rima Khatun
+Email: help@rskworld.in
+Phone: +91 93305 39277
+Address: Nutanhat, Mongolkote, Purba Burdwan, West Bengal, India, 713147
+Website: https://rskworld.in/
+Year: 2026
+
+================================================================================
+PROJECT STRUCTURE
+================================================================================
+
+face-recognition/
+├── data/
+│   ├── train/          - Training images (person_name/image.jpg)
+│   ├── test/           - Test images
+│   └── validation/     - Validation images
+├── models/             - Saved models
+├── scripts/
+│   ├── __init__.py
+│   ├── load_dataset.py - Dataset loading utilities
+│   ├── preprocess.py   - Image preprocessing
+│   ├── recognize_faces.py - Face recognition
+│   └── visualize.py    - Visualization utilities
+├── config.py           - Configuration settings
+├── train_model.py      - Main training script
+├── example_usage.py    - Usage examples
+├── demo.py             - Interactive demo
+├── setup_dataset.py    - Dataset setup utility
+├── requirements.txt    - Python dependencies
+├── README.md           - Main documentation
+├── QUICKSTART.md       - Quick start guide
+├── index.html          - HTML demo page
+├── LICENSE             - License information
+└── project_metadata.json - Project metadata
+
+================================================================================
+QUICK START
+================================================================================
+
+1. Install dependencies:
+   pip install -r requirements.txt
+
+2. Set up directory structure:
+   python setup_dataset.py
+
+3. Organize your images:
+   Place images in data/train/person_name/image.jpg format
+
+4. Train the model:
+   python train_model.py
+
+5. Run examples:
+   python example_usage.py
+
+6. Interactive demo:
+   python demo.py
+
+================================================================================
+© 2026 RSK World. All rights reserved.
+================================================================================
+

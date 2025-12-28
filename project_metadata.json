@@ -1,0 +1,34 @@
+{
+    "id": 22,
+    "title": "Face Recognition Dataset",
+    "category": "Image Data",
+    "description": "Facial recognition dataset with labeled face images across multiple identities for face recognition and verification systems.",
+    "full_description": "This dataset contains labeled face images with multiple images per identity, various poses, lighting conditions, and expressions. Perfect for face recognition, face verification, and biometric authentication systems.",
+    "technologies": ["PNG", "JPG", "NumPy", "OpenCV", "Face Recognition"],
+    "difficulty": "Intermediate",
+    "source_link": "./face-recognition/face-recognition.zip",
+    "demo_link": "./face-recognition/",
+    "features": [
+        "Multiple identities",
+        "Various poses",
+        "Different lighting",
+        "Facial landmarks",
+        "Ready for face recognition models"
+    ],
+    "icon": "fas fa-image",
+    "icon_color": "text-info",
+    "project_image": "./face-recognition/face-recognition.png",
+    "project_image_alt": "Face Recognition Dataset - rskworld.in",
+    "contact": {
+        "company": "RSK World",
+        "founder": "Molla Samser",
+        "designer": "Rima Khatun",
+        "tester": "Rima Khatun",
+        "email": "help@rskworld.in",
+        "phone": "+91 93305 39277",
+        "address": "Nutanhat, Mongolkote, Purba Burdwan, West Bengal, India, 713147",
+        "website": "https://rskworld.in/",
+        "year": 2026
+    }
+}
+

@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    Project Information:
+    - Project ID: 22
+    - Title: Face Recognition Dataset
+    - Category: Image Data
+    - Technologies: PNG, JPG, NumPy, OpenCV, Face Recognition
+    - Difficulty: Intermediate
+
+    Contact Information:
+    RSK World
+    Founder: Molla Samser
+    Designer & Tester: Rima Khatun
+    Email: help@rskworld.in
+    Phone: +91 93305 39277
+    Address: Nutanhat, Mongolkote, Purba Burdwan, West Bengal, India, 713147
+    Website: https://rskworld.in/
+    Year: 2026
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition Dataset - Complete Guide | RSK World</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        
+        .content h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .content h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card i {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .badge {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .footer {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            color: #666;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+            border-left: 4px solid #667eea;
+        }
+        
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .info {
+            background: #d1ecf1;
+            border-left: 4px solid #0dcaf0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        
+        .toc li {
+            margin: 8px 0;
+        }
+        
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table th {
+            background: #667eea;
+            color: white;
+        }
+        
+        table tr:hover {
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-image"></i> Face Recognition Dataset</h1>
+            <p>Complete Step-by-Step Guide - Facial Recognition System with Advanced Features</p>
+        </div>
+        
+        <div class="content">
+            <h2>Table of Contents</h2>
+            <div class="toc">
+                <ul>
+                    <li><a href="#overview">1. Overview</a></li>
+                    <li><a href="#features">2. Features</a></li>
+                    <li><a href="#installation">3. Installation Guide</a></li>
+                    <li><a href="#setup">4. Setup & Configuration</a></li>
+                    <li><a href="#usage">5. Usage Guide</a></li>
+                    <li><a href="#advanced">6. Advanced Features</a></li>
+                    <li><a href="#api">7. REST API</a></li>
+                    <li><a href="#troubleshooting">8. Troubleshooting</a></li>
+                </ul>
+            </div>
+
+            <h2 id="overview">1. Overview</h2>
+            <p>This face recognition dataset project is a complete, production-ready system for face recognition, verification, and biometric authentication. It includes labeled face images with multiple images per identity, various poses, lighting conditions, and expressions.</p>
+            
+            <div class="info">
+                <strong><i class="fas fa-info-circle"></i> Project Information:</strong><br>
+                <strong>Project ID:</strong> 22<br>
+                <strong>Category:</strong> Image Data<br>
+                <strong>Difficulty:</strong> Intermediate<br>
+                <strong>Technologies:</strong> PNG, JPG, NumPy, OpenCV, Face Recognition
+            </div>
+
+            <h2 id="features">2. Features</h2>
+            
+            <h3>Core Features</h3>
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Multiple Identities</h3>
+                    <p>Support for multiple labeled identities with organized dataset structure</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>Various Poses</h3>
+                    <p>Handles different facial poses and angles automatically</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Different Lighting</h3>
+                    <p>Works with various lighting conditions</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Facial Landmarks</h3>
+                    <p>Automatic facial landmark detection and alignment</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Model Ready</h3>
+                    <p>Ready-to-use face recognition models</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Real-time Recognition</h3>
+                    <p>Webcam-based live face recognition</p>
+                </div>
+            </div>
+
+            <h3>Advanced Features</h3>
+            <ul>
+                <li><strong>Face Verification:</strong> 1:1 face matching with confidence scores</li>
+                <li><strong>Face Clustering:</strong> Automatic grouping of similar faces using DBSCAN</li>
+                <li><strong>Quality Assessment:</strong> Image quality scoring (blur, brightness, size)</li>
+                <li><strong>Face Alignment:</strong> Automatic face alignment for better accuracy</li>
+                <li><strong>Data Augmentation:</strong> 8+ augmentation techniques (rotate, flip, brightness, contrast, noise, blur, crop)</li>
+                <li><strong>Batch Processing:</strong> Process multiple images efficiently</li>
+                <li><strong>REST API:</strong> Web API for face recognition services</li>
+            </ul>
+
+            <h2 id="installation">3. Installation Guide</h2>
+            
+            <h3>Step 1: Prerequisites</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Python 3.7 or higher</strong> - Make sure Python is installed on your system
+            </div>
+            <div class="code-block">
+                <code>python --version</code>
+            </div>
+
+            <h3>Step 2: Install Dependencies</h3>
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Install required packages</strong> - Run the following command in your terminal
+            </div>
+            <div class="code-block">
+                <code>pip install -r requirements.txt</code>
+            </div>
+            
+            <div class="warning">
+                <strong><i class="fas fa-exclamation-triangle"></i> Note:</strong> On some systems, you may need to install <code>dlib</code> separately:
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li><strong>Windows:</strong> <code>pip install dlib</code></li>
+                    <li><strong>Linux:</strong> Install cmake first: <code>sudo apt-get install cmake</code>, then <code>pip install dlib</code></li>
+                    <li><strong>macOS:</strong> <code>brew install cmake</code>, then <code>pip install dlib</code></li>
+                </ul>
+            </div>
+
+            <h3>Step 3: Verify Installation</h3>
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Test imports</strong> - Verify all packages are installed correctly
+            </div>
+            <div class="code-block">
+                <code>python -c "import face_recognition; import cv2; import numpy; print('All packages installed successfully!')"</code>
+            </div>
+
+            <h2 id="setup">4. Setup & Configuration</h2>
+            
+            <h3>Step 1: Create Directory Structure</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Set up folders</strong> - Create necessary directories for data and models
+            </div>
+            <div class="code-block">
+                <code>python setup_dataset.py</code>
+            </div>
+            <p>This creates the following structure:</p>
+            <div class="code-block">
+                <code>data/<br>
+├── train/          # Training images<br>
+├── test/           # Test images<br>
+└── validation/     # Validation images<br>
+models/             # Saved models</code>
+            </div>
+
+            <h3>Step 2: Create Sample Data (Optional)</h3>
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Generate sample images</strong> - Create test data for immediate use
+            </div>
+            <div class="code-block">
+                <code>python create_sample_data.py</code>
+            </div>
+            <div class="info">
+                This creates 5 sample identities (person_001 to person_005) with 5 images each (25 total images) for testing purposes.
+            </div>
+
+            <h3>Step 3: Organize Your Own Data</h3>
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Add your images</strong> - Organize images in the following structure
+            </div>
+            <div class="code-block">
+                <code>data/train/<br>
+├── person_001/<br>
+│   ├── image1.jpg<br>
+│   ├── image2.jpg<br>
+│   └── ...<br>
+├── person_002/<br>
+│   ├── image1.jpg<br>
+│   └── ...<br>
+└── ...</code>
+            </div>
+            <div class="warning">
+                <strong>Important:</strong>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Each person should have their own folder</li>
+                    <li>Use clear, front-facing images for best results</li>
+                    <li>Recommended: 5-10 images per person</li>
+                    <li>Supported formats: JPG, JPEG, PNG</li>
+                    <li>Minimum image size: 200x200 pixels</li>
+                </ul>
+            </div>
+
+            <h2 id="usage">5. Usage Guide</h2>
+
+            <h3>Step 1: Train the Model</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Train face recognition model</strong> - This extracts face encodings from all training images
+            </div>
+            <div class="code-block">
+                <code>python train_model.py</code>
+            </div>
+            <p>This will:</p>
+            <ul>
+                <li>Load all images from <code>data/train/</code></li>
+                <li>Detect faces in each image</li>
+                <li>Extract 128-dimensional face encodings</li>
+                <li>Save the trained model to <code>models/face_recognition_model.pkl</code></li>
+            </ul>
+
+            <h3>Step 2: Test the System</h3>
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Run comprehensive tests</strong> - Verify everything works correctly
+            </div>
+            <div class="code-block">
+                <code>python test_system.py</code>
+            </div>
+            <p>This runs 8 comprehensive tests covering all components.</p>
+
+            <h3>Step 3: Run Examples</h3>
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Try basic examples</strong> - See the system in action
+            </div>
+            <div class="code-block">
+                <code>python example_usage.py</code>
+            </div>
+
+            <h3>Step 4: Interactive Demo</h3>
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>Try interactive demo</strong> - Use webcam or image files
+            </div>
+            <div class="code-block">
+                <code>python demo.py</code>
+            </div>
+            <p>Choose between:</p>
+            <ul>
+                <li><strong>Option 1:</strong> Webcam (real-time recognition)</li>
+                <li><strong>Option 2:</strong> Image file recognition</li>
+            </ul>
+
+            <h3>Step 5: Advanced Features Demo</h3>
+            <div class="step">
+                <span class="step-number">5</span>
+                <strong>Explore advanced features</strong> - Try verification, clustering, quality assessment
+            </div>
+            <div class="code-block">
+                <code>python advanced_demo.py</code>
+            </div>
+
+            <h3>Python API Usage</h3>
+            
+            <h4>Basic Face Recognition</h4>
+            <div class="code-block">
+                <code>from scripts.recognize_faces import FaceRecognizer<br><br>
+# Initialize recognizer<br>
+recognizer = FaceRecognizer()<br><br>
+# Train on dataset<br>
+recognizer.train('data/train', save_model=True)<br><br>
+# Recognize faces in an image<br>
+results = recognizer.recognize('path/to/image.jpg')<br><br>
+# Print results<br>
+for result in results:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Name: {result['name']}")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Confidence: {result['confidence']:.2%}")</code>
+            </div>
+
+            <h4>Load Dataset</h4>
+            <div class="code-block">
+                <code>from scripts.load_dataset import FaceDatasetLoader<br><br>
+# Load dataset<br>
+loader = FaceDatasetLoader('data/train')<br>
+images, labels, label_mapping = loader.load()<br><br>
+# Get statistics<br>
+stats = loader.get_statistics()<br>
+print(f"Total images: {stats['total_images']}")<br>
+print(f"Total identities: {stats['total_identities']}")</code>
+            </div>
+
+            <h4>Preprocess Images</h4>
+            <div class="code-block">
+                <code>from scripts.preprocess import preprocess_faces<br><br>
+# Preprocess all images<br>
+processed_images, processed_labels = preprocess_faces('data/train')<br><br>
+print(f"Processed {len(processed_images)} face images")</code>
+            </div>
+
+            <h2 id="advanced">6. Advanced Features</h2>
+
+            <h3>Face Verification (1:1 Matching)</h3>
+            <div class="code-block">
+                <code>from scripts.advanced_features import FaceVerifier<br>
+from scripts.preprocess import get_face_encoding<br>
+import cv2<br><br>
+# Load images<br>
+img1 = cv2.imread('image1.jpg')<br>
+img2 = cv2.imread('image2.jpg')<br>
+rgb1 = cv2.cvtColor(img1, cv2.COLOR_BGR2RGB)<br>
+rgb2 = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)<br><br>
+# Get encodings<br>
+encoding1 = get_face_encoding(rgb1)<br>
+encoding2 = get_face_encoding(rgb2)<br><br>
+# Verify<br>
+verifier = FaceVerifier()<br>
+result = verifier.verify(encoding1, encoding2)<br><br>
+print(f"Match: {result['is_match']}")<br>
+print(f"Confidence: {result['confidence']:.2%}")<br>
+print(f"Distance: {result['distance']:.4f}")</code>
+            </div>
+
+            <h3>Face Clustering</h3>
+            <div class="code-block">
+                <code>from scripts.advanced_features import FaceClustering<br>
+from scripts.preprocess import get_face_encoding<br><br>
+# Get encodings from multiple images<br>
+encodings = []<br>
+for image in images:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;encoding = get_face_encoding(image)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if encoding is not None:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encodings.append(encoding)<br><br>
+# Cluster faces<br>
+clusterer = FaceClustering(eps=0.6, min_samples=2)<br>
+result = clusterer.cluster(encodings)<br><br>
+print(f"Clusters found: {result['n_clusters']}")<br>
+print(f"Noise points: {result['n_noise']}")</code>
+            </div>
+
+            <h3>Quality Assessment</h3>
+            <div class="code-block">
+                <code>from scripts.advanced_features import FaceQualityAssessment<br>
+from scripts.preprocess import detect_faces<br><br>
+# Load image<br>
+image = cv2.imread('image.jpg')<br>
+rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)<br><br>
+# Detect face<br>
+face_locations = detect_faces(rgb_image)<br>
+if len(face_locations) > 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# Assess quality<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assessor = FaceQualityAssessment()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;quality = assessor.assess(rgb_image, face_locations[0])<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Blur score: {quality['blur_score']:.3f}")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Brightness score: {quality['brightness_score']:.3f}")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Overall score: {quality['overall_score']:.3f}")</code>
+            </div>
+
+            <h3>Data Augmentation</h3>
+            <div class="code-block">
+                <code>from scripts.data_augmentation import FaceAugmenter<br>
+import cv2<br><br>
+# Load image<br>
+image = cv2.imread('image.jpg')<br>
+rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)<br><br>
+# Create augmenter<br>
+augmenter = FaceAugmenter()<br><br>
+# Apply augmentations<br>
+augmented = augmenter.augment_image(rgb_image, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;['rotate', 'flip', 'brightness', 'contrast'])<br><br>
+# Save augmented images<br>
+for i, aug_img in enumerate(augmented):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cv2.imwrite(f'augmented_{i}.jpg', <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cv2.cvtColor(aug_img, cv2.COLOR_RGB2BGR))</code>
+            </div>
+
+            <h3>Batch Processing</h3>
+            <div class="code-block">
+                <code>from scripts.advanced_features import BatchProcessor<br>
+from scripts.recognize_faces import FaceRecognizer<br><br>
+# Initialize recognizer<br>
+recognizer = FaceRecognizer()<br>
+recognizer.load_model()  # Or train first<br><br>
+# Create batch processor<br>
+processor = BatchProcessor(recognizer=recognizer)<br><br>
+# Process entire directory<br>
+results = processor.process_directory('data/test', <br>
+&nbsp;&nbsp;&nbsp;&nbsp;output_file='results.json')<br><br>
+# Process list of images<br>
+image_paths = ['img1.jpg', 'img2.jpg', 'img3.jpg']<br>
+results = processor.process_image_list(image_paths)</code>
+            </div>
+
+            <h2 id="api">7. REST API</h2>
+
+            <h3>Starting the API Server</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Start the server</strong> - Run the Flask API server
+            </div>
+            <div class="code-block">
+                <code>python scripts/api_server.py</code>
+            </div>
+            <p>The server will start on <code>http://localhost:5000</code></p>
+
+            <h3>API Endpoints</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Endpoint</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GET</td>
+                        <td>/api/health</td>
+                        <td>Health check endpoint</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/recognize</td>
+                        <td>Recognize faces in an image (base64 encoded)</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/verify</td>
+                        <td>Verify if two images contain the same person</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/quality</td>
+                        <td>Assess quality of face image</td>
+                    </tr>
+                    <tr>
+                        <td>POST</td>
+                        <td>/api/cluster</td>
+                        <td>Cluster multiple face encodings</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Example API Usage (Python)</h3>
+            <div class="code-block">
+                <code>import requests<br>
+import base64<br><br>
+# Read image and encode<br>
+with open('image.jpg', 'rb') as f:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image_data = base64.b64encode(f.read()).decode('utf-8')<br><br>
+# Send request<br>
+response = requests.post('http://localhost:5000/api/recognize', <br>
+&nbsp;&nbsp;&nbsp;&nbsp;json={'image': image_data})<br><br>
+# Get results<br>
+results = response.json()<br>
+print(f"Faces detected: {results['faces_detected']}")<br>
+for result in results['results']:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Name: {result['name']}, Confidence: {result['confidence']:.2%}")</code>
+            </div>
+
+            <h3>Example API Usage (cURL)</h3>
+            <div class="code-block">
+                <code># Health check<br>
+curl http://localhost:5000/api/health<br><br>
+# Recognize faces<br>
+curl -X POST http://localhost:5000/api/recognize \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-H "Content-Type: application/json" \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-d '{"image": "base64_encoded_image_data"}'</code>
+            </div>
+
+            <h2 id="troubleshooting">8. Troubleshooting</h2>
+
+            <h3>Common Issues and Solutions</h3>
+
+            <div class="warning">
+                <strong>Issue: ModuleNotFoundError: No module named 'face_recognition'</strong><br>
+                <strong>Solution:</strong> Install the package: <code>pip install face-recognition</code>
+            </div>
+
+            <div class="warning">
+                <strong>Issue: dlib installation fails</strong><br>
+                <strong>Solution:</strong>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li><strong>Windows:</strong> Download pre-built wheel or use conda: <code>conda install -c conda-forge dlib</code></li>
+                    <li><strong>Linux:</strong> Install cmake: <code>sudo apt-get install cmake</code>, then <code>pip install dlib</code></li>
+                    <li><strong>macOS:</strong> Install Xcode command line tools: <code>xcode-select --install</code></li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <strong>Issue: No faces detected in images</strong><br>
+                <strong>Solution:</strong>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Use clear, front-facing images</li>
+                    <li>Ensure good lighting conditions</li>
+                    <li>Try adjusting <code>FACE_DETECTION_MODEL</code> in <code>config.py</code> (use 'cnn' instead of 'hog' for better accuracy)</li>
+                    <li>Check image quality (minimum 200x200 pixels)</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <strong>Issue: Low recognition accuracy</strong><br>
+                <strong>Solution:</strong>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Use 5-10 images per person for training</li>
+                    <li>Include various poses and lighting conditions</li>
+                    <li>Adjust tolerance in <code>config.py</code> (lower = more strict)</li>
+                    <li>Use face alignment for better results</li>
+                </ul>
+            </div>
+
+            <div class="info">
+                <strong>Tip:</strong> Run <code>python check_errors.py</code> to verify all files and check for common issues.
+            </div>
+
+            <h3>Configuration Options</h3>
+            <p>Edit <code>config.py</code> to customize:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Setting</th>
+                        <th>Description</th>
+                        <th>Default</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FACE_DETECTION_MODEL</td>
+                        <td>Face detection model ('hog' or 'cnn')</td>
+                        <td>'hog'</td>
+                    </tr>
+                    <tr>
+                        <td>TOLERANCE</td>
+                        <td>Face matching tolerance (lower = more strict)</td>
+                        <td>0.6</td>
+                    </tr>
+                    <tr>
+                        <td>NUM_JITTERS</td>
+                        <td>Number of times to re-sample face for encoding</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>IMAGE_SIZE</td>
+                        <td>Standard face image size</td>
+                        <td>(160, 160)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Complete Workflow Summary</h2>
+            <div class="success">
+                <ol style="margin-left: 20px;">
+                    <li><strong>Install:</strong> <code>pip install -r requirements.txt</code></li>
+                    <li><strong>Setup:</strong> <code>python setup_dataset.py</code></li>
+                    <li><strong>Create Data:</strong> <code>python create_sample_data.py</code> (or add your own)</li>
+                    <li><strong>Train:</strong> <code>python train_model.py</code></li>
+                    <li><strong>Test:</strong> <code>python test_system.py</code></li>
+                    <li><strong>Demo:</strong> <code>python demo.py</code></li>
+                    <li><strong>API:</strong> <code>python scripts/api_server.py</code> (optional)</li>
+                </ol>
+            </div>
+
+            <h2>Technologies Used</h2>
+            <div class="tech-badges">
+                <span class="badge">Python 3.7+</span>
+                <span class="badge">NumPy</span>
+                <span class="badge">OpenCV</span>
+                <span class="badge">Face Recognition</span>
+                <span class="badge">scikit-learn</span>
+                <span class="badge">Flask</span>
+                <span class="badge">Matplotlib</span>
+                <span class="badge">Pillow</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>RSK World</strong></p>
+            <p>Founder: Molla Samser | Designer & Tester: Rima Khatun</p>
+            <p>Email: <a href="mailto:help@rskworld.in">help@rskworld.in</a> | Phone: +91 93305 39277</p>
+            <p>Address: Nutanhat, Mongolkote, Purba Burdwan, West Bengal, India, 713147</p>
+            <p>Website: <a href="https://rskworld.in/" target="_blank">https://rskworld.in/</a></p>
+            <p style="margin-top: 15px;">© 2026 RSK World. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.9em; color: #999;">
+                Project ID: 22 | Face Recognition Dataset | Educational & Research Purpose
+            </p>
+        </div>
+    </div>
+</body>
+</html>
